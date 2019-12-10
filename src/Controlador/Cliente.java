@@ -141,19 +141,15 @@ public class Cliente implements ActionListener{
         try {
             ResultSet rs = modelo.Listar();
             DefaultTableModel model;
-            String[] title = {"Id", "Apellido 1","Apellido 2","Nombre 1","Nombre 2"};
+            String[] title = {"Id", "Apellido 1","Apellido 2","Nombre 1","Nombre 2","Direccion","Telefono","email"};
             model = new DefaultTableModel(null, title);
             String[] data_table = new String[8];
-            do {     
-                data_table[0] = rs.getString(1);
-                data_table[1] = rs.getString(2);
-                data_table[2] = rs.getString(3);
-                data_table[3] = rs.getString(4);
-                data_table[4] = rs.getString(5);
-                data_table[5] = rs.getString(6);
-                data_table[6] = rs.getString(7);
-                data_table[7] = rs.getString(8);
+            do {   
                 
+                for (int j = 1; j <= rs.getMetaData().getColumnCount(); j++){
+                    data_table[j-1] = rs.getString(j);
+                }
+                                
                 vista.txtId.setText(rs.getString(1).toString());
                 vista.txtApe1.setText(rs.getString(2).toString());
                 vista.txtApe2.setText(rs.getString(3).toString());

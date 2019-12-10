@@ -5,13 +5,19 @@
  */
 package agenciaturistica;
 
+import Controlador.Aerolinea;
 import Controlador.Agencia;
 import Controlador.Cliente;
 import Controlador.Hotel;
+import Controlador.Operador;
+import Modelo.Maerolinea;
 import Modelo.Mcliente;
 import Modelo.Mhotel;
+import Modelo.Moperador;
+import Vista.AerolineaView;
 import Vista.ClienteView;
 import Vista.HotelView;
+import Vista.OperadorView;
 import Vista.PrincipalView;
 
 /**
@@ -30,12 +36,18 @@ public class AgenciaTuristica {
         PrincipalView vistaMain = new PrincipalView();
         ClienteView clienteView = new ClienteView();
         HotelView hotelView = new HotelView();
+        AerolineaView aerolineaView = new AerolineaView();
+        OperadorView operadorView = new OperadorView();
+        Moperador Moperador = new Moperador();
+        Maerolinea mAaerolinea = new Maerolinea();
         Mhotel mHotel = new Mhotel();
         Mcliente mCliente = new Mcliente();
         Cliente cliente = new Cliente(mCliente,clienteView);
         Hotel hotel = new Hotel(mHotel,hotelView);
+        Aerolinea aerolinea = new Aerolinea(mAaerolinea,aerolineaView);
+        Operador operador = new Operador(Moperador,operadorView);
         
-        Agencia agencia = new Agencia(vistaMain,cliente,hotel);
+        Agencia agencia = new Agencia(vistaMain,cliente,hotel,aerolinea,operador);
         
         
         agencia.Iniciar();

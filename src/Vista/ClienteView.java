@@ -99,6 +99,7 @@ public class ClienteView extends javax.swing.JFrame {
 
             }
         ));
+        tblCliente.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tblCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblClienteMouseClicked(evt);
@@ -222,6 +223,12 @@ public class ClienteView extends javax.swing.JFrame {
         int sel = tblCliente.getSelectedRow();
         txtId.setText(tblCliente.getValueAt(sel, 0) + "");
         txtApe1.setText(tblCliente.getValueAt(sel, 1) + "");
+        txtApe2.setText(tblCliente.getValueAt(sel, 2) + "");
+        txtNom1.setText(tblCliente.getValueAt(sel, 3) + "");
+        txtNom2.setText(tblCliente.getValueAt(sel, 4) + "");
+        txtDir.setText(tblCliente.getValueAt(sel, 5) + "");
+        txtTele.setText(tblCliente.getValueAt(sel, 6) + "");
+        txtEmail.setText(tblCliente.getValueAt(sel, 7) + "");
     }//GEN-LAST:event_tblClienteMouseClicked
 
     /**

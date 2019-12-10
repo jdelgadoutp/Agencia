@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  *
  * @author andres
  */
-public class Mhotel {
+public class Maerolinea {
     
     private String nit;
     private String dv;
@@ -22,10 +22,10 @@ public class Mhotel {
     private String telefono;
     private String ciudad;
     private String pais;
-    private String tipo="H";
+    private String tipo="A";
     private String email;
 
-    public Mhotel() {
+    public Maerolinea() {
     }
 
     public String getNit() {
@@ -214,7 +214,7 @@ public class Mhotel {
     }
     
     public ResultSet Listar(){
-        String sql = "Select * from proveedor where tipo='H' order by nit;";
+        String sql = "Select * from proveedor where tipo='A' order by nit;";
         Conexion cn = new Conexion();
         cn.setConexionPostgres();
         ResultSet rs = null;

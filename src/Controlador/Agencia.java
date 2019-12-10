@@ -20,7 +20,25 @@ public class Agencia implements ActionListener{
     private PrincipalView vistaPrincipal;
     private Cliente cliente;
     private Hotel hotel;
+    private Aerolinea aerolinea;
+    private Operador operador;
 
+    public Operador getOperador() {
+        return operador;
+    }
+
+    public void setOperador(Operador operador) {
+        this.operador = operador;
+    }
+    
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
+    
     public Hotel getHotel() {
         return hotel;
     }
@@ -45,13 +63,17 @@ public class Agencia implements ActionListener{
         this.vistaPrincipal = vistaPrincipal;
     }
 
-    public Agencia(PrincipalView vistaPrincipal,Cliente cliente,Hotel hotel) {
+    public Agencia(PrincipalView vistaPrincipal,Cliente cliente,Hotel hotel,Aerolinea aerolinea,Operador operador) {
         this.vistaPrincipal = vistaPrincipal;
         this.cliente = cliente;
         this.hotel = hotel;
+        this.aerolinea = aerolinea;
+        this.operador = operador;
         
         this.vistaPrincipal.btnCliente.addActionListener(this);
         this.vistaPrincipal.btnHotel.addActionListener(this);
+        this.vistaPrincipal.btnAerolinea.addActionListener(this);
+        this.vistaPrincipal.btnOperadores.addActionListener(this);
     }
 
     
@@ -68,8 +90,15 @@ public class Agencia implements ActionListener{
         if (this.vistaPrincipal.btnCliente == evento.getSource()){
             cliente.Iniciar();
         }
-        if (this.vistaPrincipal.btnHotel == evento.getSource())
+        if (this.vistaPrincipal.btnHotel == evento.getSource()){
             hotel.Iniciar();
+        }
+        if (this.vistaPrincipal.btnAerolinea == evento.getSource()){
+            aerolinea.Iniciar();
+        }
+        if (this.vistaPrincipal.btnOperadores == evento.getSource()){
+            operador.Iniciar();
+        }
     }
     
     

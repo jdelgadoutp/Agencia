@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  *
  * @author andres
  */
-public class Mhotel {
+public class Moperador {
     
     private String nit;
     private String dv;
@@ -22,10 +22,10 @@ public class Mhotel {
     private String telefono;
     private String ciudad;
     private String pais;
-    private String tipo="H";
+    private String tipo="O";
     private String email;
 
-    public Mhotel() {
+    public Moperador() {
     }
 
     public String getNit() {
@@ -141,7 +141,7 @@ public class Mhotel {
     
     public void Buscar(String nit){
         
-        String sql = "Select * from proveedor where nit='" + nit + "' and tipo='H';";
+        String sql = "Select * from proveedor where nit='" + nit + "' and tipo='O';";
         Conexion cn = new Conexion();
         cn.setConexionPostgres();
         ResultSet rs = cn.setDatosConsulta(sql);
@@ -214,7 +214,7 @@ public class Mhotel {
     }
     
     public ResultSet Listar(){
-        String sql = "Select * from proveedor where tipo='H' order by nit;";
+        String sql = "Select * from proveedor where tipo='O' order by nit;";
         Conexion cn = new Conexion();
         cn.setConexionPostgres();
         ResultSet rs = null;
@@ -241,3 +241,4 @@ public class Mhotel {
     }
     
 }
+

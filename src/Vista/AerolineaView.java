@@ -9,12 +9,12 @@ package Vista;
  *
  * @author andres
  */
-public class HotelView extends javax.swing.JFrame {
+public class AerolineaView extends javax.swing.JFrame {
 
     /**
      * Creates new form HotelView
      */
-    public HotelView() {
+    public AerolineaView() {
         initComponents();
     }
 
@@ -104,6 +104,11 @@ public class HotelView extends javax.swing.JFrame {
             }
         ));
         tblHotel.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tblHotel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblHotelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblHotel);
 
         btnGuardar.setText("Guardar");
@@ -228,6 +233,21 @@ public class HotelView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertarActionPerformed
 
+    private void tblHotelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblHotelMouseClicked
+        // TODO add your handling code here:
+        int sel = tblHotel.getSelectedRow();
+        txtNit.setText(tblHotel.getValueAt(sel, 0) + "");
+        txtDv.setText(tblHotel.getValueAt(sel, 1) + "");
+        txtSocial.setText(tblHotel.getValueAt(sel, 2) + "");
+        txtComercial.setText(tblHotel.getValueAt(sel, 3) + "");
+        txtDireccion.setText(tblHotel.getValueAt(sel, 4) + "");
+        txtTelefono.setText(tblHotel.getValueAt(sel, 5) + "");
+        txtCiudad.setText(tblHotel.getValueAt(sel, 6) + "");
+        txtPais.setText(tblHotel.getValueAt(sel, 7) + "");
+        txtEmail.setText(tblHotel.getValueAt(sel, 8) + "");
+        txtEmail.setText(tblHotel.getValueAt(sel, 9) + "");
+    }//GEN-LAST:event_tblHotelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -245,20 +265,21 @@ public class HotelView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HotelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AerolineaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HotelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AerolineaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HotelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AerolineaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HotelView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AerolineaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HotelView().setVisible(true);
+                new AerolineaView().setVisible(true);
             }
         });
     }

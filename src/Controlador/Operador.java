@@ -5,11 +5,11 @@
  */
 package Controlador;
 
-import Modelo.Mhotel;
-import Vista.HotelView;
+
+import Modelo.Moperador;
+import Vista.OperadorView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,28 +18,28 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author andres
  */
-public class Hotel implements ActionListener {
+public class Operador implements ActionListener {
     
-    private Mhotel modelo;
-    private HotelView vista;
+    private Moperador modelo;
+    private OperadorView vista;
 
-    public Mhotel getModelo() {
+    public Moperador getModelo() {
         return modelo;
     }
 
-    public void setModelo(Mhotel modelo) {
+    public void setModelo(Moperador modelo) {
         this.modelo = modelo;
     }
 
-    public HotelView getVista() {
+    public OperadorView getVista() {
         return vista;
     }
 
-    public void setVista(HotelView vista) {
+    public void setVista(OperadorView vista) {
         this.vista = vista;
     }
 
-    public Hotel(Mhotel modelo, HotelView vista) {
+    public Operador(Moperador modelo, OperadorView vista) {
         this.modelo = modelo;
         this.vista = vista;
         
@@ -51,7 +51,7 @@ public class Hotel implements ActionListener {
     }
     
     public void Iniciar(){
-       this.vista.setTitle("Registro de Hoteles");
+       this.vista.setTitle("Registro de Operadores");
        this.vista.setSize(620, 520);
        this.vista.setLocationRelativeTo(null);
        this.vista.setVisible(true);
@@ -94,9 +94,9 @@ public class Hotel implements ActionListener {
         vista.txtNit.requestFocus();
     }
     public void Guardar(){
-        modelo.Guardar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"H",vista.txtEmail.getText());
+        modelo.Guardar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"O",vista.txtEmail.getText());
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel insertado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Operador insertado exitosamente ");
     }
     
     public void Buscar(){
@@ -112,9 +112,9 @@ public class Hotel implements ActionListener {
     }
     
     public void Editar(){
-        modelo.Editar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"H",vista.txtEmail.getText());
+        modelo.Editar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"O",vista.txtEmail.getText());
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel actualizado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Operador actualizado exitosamente ");
     }
     
     public void Eliminar(){
@@ -130,7 +130,7 @@ public class Hotel implements ActionListener {
         vista.txtEmail.setText(modelo.getEmail());
         vista.txtNit.requestFocus();
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel eliminado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Operador eliminado exitosamente ");
     }
     
     public void Tabla(){

@@ -5,11 +5,12 @@
  */
 package Controlador;
 
+import Modelo.Maerolinea;
 import Modelo.Mhotel;
-import Vista.HotelView;
+import Vista.AerolineaView;
+import Vista.OperadorView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,28 +19,28 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author andres
  */
-public class Hotel implements ActionListener {
+public class Aerolinea implements ActionListener {
     
-    private Mhotel modelo;
-    private HotelView vista;
+    private Maerolinea modelo;
+    private AerolineaView vista;
 
-    public Mhotel getModelo() {
+    public Maerolinea getModelo() {
         return modelo;
     }
 
-    public void setModelo(Mhotel modelo) {
+    public void setModelo(Maerolinea modelo) {
         this.modelo = modelo;
     }
 
-    public HotelView getVista() {
+    public AerolineaView getVista() {
         return vista;
     }
 
-    public void setVista(HotelView vista) {
+    public void setVista(AerolineaView vista) {
         this.vista = vista;
     }
 
-    public Hotel(Mhotel modelo, HotelView vista) {
+    public Aerolinea(Maerolinea modelo, AerolineaView vista) {
         this.modelo = modelo;
         this.vista = vista;
         
@@ -51,7 +52,7 @@ public class Hotel implements ActionListener {
     }
     
     public void Iniciar(){
-       this.vista.setTitle("Registro de Hoteles");
+       this.vista.setTitle("Registro de Aerolineas");
        this.vista.setSize(620, 520);
        this.vista.setLocationRelativeTo(null);
        this.vista.setVisible(true);
@@ -94,9 +95,9 @@ public class Hotel implements ActionListener {
         vista.txtNit.requestFocus();
     }
     public void Guardar(){
-        modelo.Guardar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"H",vista.txtEmail.getText());
+        modelo.Guardar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"A",vista.txtEmail.getText());
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel insertado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Aerolinea insertado exitosamente ");
     }
     
     public void Buscar(){
@@ -114,7 +115,7 @@ public class Hotel implements ActionListener {
     public void Editar(){
         modelo.Editar(vista.txtNit.getText(),vista.txtDv.getText(),vista.txtSocial.getText(),vista.txtComercial.getText(),vista.txtDireccion.getText(),vista.txtTelefono.getText(),vista.txtCiudad.getText(),vista.txtPais.getText(),"H",vista.txtEmail.getText());
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel actualizado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Aerolinea actualizado exitosamente ");
     }
     
     public void Eliminar(){
@@ -130,7 +131,7 @@ public class Hotel implements ActionListener {
         vista.txtEmail.setText(modelo.getEmail());
         vista.txtNit.requestFocus();
         Tabla();
-        JOptionPane.showMessageDialog(null, "Hotel eliminado exitosamente ");
+        JOptionPane.showMessageDialog(null, "Aerolinea eliminado exitosamente ");
     }
     
     public void Tabla(){
@@ -146,7 +147,7 @@ public class Hotel implements ActionListener {
                 for (int j = 1; j <= rs.getMetaData().getColumnCount(); j++){
                     data_table[j-1] = rs.getString(j);
                 }
-                
+                                
                 vista.txtNit.setText(rs.getString(1).toString());
                 vista.txtDv.setText(rs.getString(2).toString());
                 vista.txtSocial.setText(rs.getString(3).toString());
@@ -160,6 +161,7 @@ public class Hotel implements ActionListener {
                 model.addRow(data_table);
             } while (rs.next());
             vista.tblHotel.setModel(model);
+            
         } catch (Exception e) {
             System.out.println("Error escribiendo datos en modelo" + e);
         }
