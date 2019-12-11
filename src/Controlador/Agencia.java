@@ -22,6 +22,15 @@ public class Agencia implements ActionListener{
     private Hotel hotel;
     private Aerolinea aerolinea;
     private Operador operador;
+    private Paquete paquete;
+
+    public Paquete getPaquete() {
+        return paquete;
+    }
+
+    public void setPaquete(Paquete paquete) {
+        this.paquete = paquete;
+    }
 
     public Operador getOperador() {
         return operador;
@@ -63,17 +72,19 @@ public class Agencia implements ActionListener{
         this.vistaPrincipal = vistaPrincipal;
     }
 
-    public Agencia(PrincipalView vistaPrincipal,Cliente cliente,Hotel hotel,Aerolinea aerolinea,Operador operador) {
+    public Agencia(PrincipalView vistaPrincipal,Cliente cliente,Hotel hotel,Aerolinea aerolinea,Operador operador,Paquete paquete) {
         this.vistaPrincipal = vistaPrincipal;
         this.cliente = cliente;
         this.hotel = hotel;
         this.aerolinea = aerolinea;
         this.operador = operador;
+        this.paquete = paquete;
         
         this.vistaPrincipal.btnCliente.addActionListener(this);
         this.vistaPrincipal.btnHotel.addActionListener(this);
         this.vistaPrincipal.btnAerolinea.addActionListener(this);
         this.vistaPrincipal.btnOperadores.addActionListener(this);
+        this.vistaPrincipal.btnPaquete.addActionListener(this);
     }
 
     
@@ -98,6 +109,9 @@ public class Agencia implements ActionListener{
         }
         if (this.vistaPrincipal.btnOperadores == evento.getSource()){
             operador.Iniciar();
+        }
+        if (this.vistaPrincipal.btnPaquete == evento.getSource()){
+            paquete.Iniciar();
         }
     }
     
